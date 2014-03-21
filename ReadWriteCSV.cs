@@ -16,14 +16,16 @@ namespace Milage_Matrix_Minder
         public String ToJSON(String CSVPath)
         {
             //Read the file into an array. One line per
-            string[] FileLines = File.ReadAllLines(CSVPath);
-            int count = FileLines.Length;
+            string[] Locations = File.ReadAllLines(CSVPath);
+            int count = Locations.Length;
 
             String myJSON = "{";
             //Now, lets step through the Array and build a JSON
             for (int i = 0; i < count; i++ )
             {
-                MessageBox.Show(FileLines[i]);
+                MessageBox.Show(Locations[i]);
+                //Now I need to build an array out of the first line
+                //Then step through each of the other lines and append to the JSON
             }
 
 
