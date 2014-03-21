@@ -23,12 +23,14 @@ namespace Milage_Matrix_Minder
             {
                 tb_MilageMatrix.Text = ofd_MilageMatrix.FileName;
             }
+            btn_MatrixMinderSubmit.Enabled = true;
         }
 
         private void btn_MatrixMinderSubmit_Click(object sender, EventArgs e)
         {
             //Process the CSV and turn into JSON
-            MessageBox.Show("Convert CSV to JSON!");
+            ReadWriteCSV myCSV = new ReadWriteCSV();
+            myCSV.ToJSON(ofd_MilageMatrix.FileName);
         }
     }
 }

@@ -69,6 +69,7 @@
             // 
             // btn_MatrixMinderSubmit
             // 
+            this.btn_MatrixMinderSubmit.Enabled = false;
             this.btn_MatrixMinderSubmit.Location = new System.Drawing.Point(601, 12);
             this.btn_MatrixMinderSubmit.Name = "btn_MatrixMinderSubmit";
             this.btn_MatrixMinderSubmit.Size = new System.Drawing.Size(75, 23);
