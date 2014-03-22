@@ -19,14 +19,21 @@ namespace Milage_Matrix_Minder
             string[] Locations = File.ReadAllLines(CSVPath);
             int count = Locations.Length;
 
+            string[] headers = Locations[0].Split(',');
             String myJSON = "{";
             //Now, lets step through the Array and build a JSON
-            for (int i = 0; i < count; i++ )
+            for (int i = 1; i < count; i++ )
             {
-                MessageBox.Show(Locations[i]);
-                //Now I need to build an array out of the first line
+                //MessageBox.Show(Locations[i]);
                 //Then step through each of the other lines and append to the JSON
+                String[] Office = Locations[i].Split(',');
+                for (int j = 0; j < headers.Length; j++)
+                {
+                    myJSON += "{\"" + headers[j]+"\":\"" + Office[j] + "\",";
+                }
+                myJSON += "},";
             }
+            MessageBox.Show(myJSON);
 
 
 
