@@ -24,14 +24,22 @@ namespace Milage_Matrix_Minder
             //Now, lets step through the Array and build a JSON
             for (int i = 1; i < count; i++ )
             {
+                myJSON += "{";
                 //MessageBox.Show(Locations[i]);
                 //Then step through each of the other lines and append to the JSON
                 String[] Office = Locations[i].Split(',');
                 for (int j = 0; j < headers.Length; j++)
                 {
-                    myJSON += "{\"" + headers[j]+"\":\"" + Office[j] + "\",";
+                    myJSON += "\"" + headers[j]+"\":\"" + Office[j] + "\"";
+                    if (j != headers.Length - 1) myJSON += ",";
                 }
-                myJSON += "},";
+                myJSON += "}";
+                if (i == count - 1)
+                {
+                    //At the end
+                    myJSON += "}";
+                }
+                else myJSON += ",";
             }
             MessageBox.Show(myJSON);
 
