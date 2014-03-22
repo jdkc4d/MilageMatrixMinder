@@ -31,6 +31,7 @@ namespace Milage_Matrix_Minder
             //Process the CSV and turn into JSON
             ReadWriteCSV myCSV = new ReadWriteCSV();
             String JSON = myCSV.ToJSON(ofd_MilageMatrix.FileName);
+            MessageBox.Show(JSON);
         }
     }
 }

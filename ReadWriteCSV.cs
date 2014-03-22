@@ -20,7 +20,7 @@ namespace Milage_Matrix_Minder
             int count = Locations.Length;
 
             string[] headers = Locations[0].Split(',');
-            String myJSON = "{";
+            String myJSON = "[";
             //Now, lets step through the Array and build a JSON
             for (int i = 1; i < count; i++ )
             {
@@ -30,14 +30,20 @@ namespace Milage_Matrix_Minder
                 String[] Office = Locations[i].Split(',');
                 for (int j = 0; j < headers.Length; j++)
                 {
-                    myJSON += "\"" + headers[j]+"\":\"" + Office[j] + "\"";
+                    //myJSON += "\"" + headers[j]+"\":\"" + Office[j] + "\"";
+                    myJSON += "\"" + headers[j]+"\":";
+                    //if the field is a number, lets not include quotes
+                    Double Milage;
+                    if (Double.TryParse(Office[j], out Milage)) myJSON += Milage;
+                    else myJSON += "\"" + Office[j] + "\"";
+
                     if (j != headers.Length - 1) myJSON += ",";
                 }
                 myJSON += "}";
                 if (i == count - 1)
                 {
                     //At the end
-                    myJSON += "}";
+                    myJSON += "]";
                 }
                 else myJSON += ",";
             }
