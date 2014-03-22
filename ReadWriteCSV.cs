@@ -41,11 +41,8 @@ namespace Milage_Matrix_Minder
                 }
                 else myJSON += ",";
             }
-            MessageBox.Show(myJSON);
-
-
-
-                return "";
+            //MessageBox.Show(myJSON);
+            return myJSON;
         }
 
         public String toCSV(String MyMilageReport)
