@@ -33,5 +33,14 @@ namespace Milage_Matrix_Minder
             String JSON = myCSV.ToJSON(ofd_MilageMatrix.FileName);
             MessageBox.Show(JSON);
         }
+
+        private void frm_main_Load(object sender, EventArgs e)
+        {
+            //Check to see if there is a MilageMatrix file in the running directory, look for JSON, not csv
+            //Check to see if there is an existing Milage Report in the running directory
+            //Update Progress bar accordingly.
+
+
+        }
     }
 }
