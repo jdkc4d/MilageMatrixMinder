@@ -99,6 +99,7 @@
             this.btn_ExportCSV.TabIndex = 4;
             this.btn_ExportCSV.Text = "Export CSV";
             this.btn_ExportCSV.UseVisualStyleBackColor = true;
+            this.btn_ExportCSV.Click += new System.EventHandler(this.btn_ExportCSV_Click);
             // 
             // dtp_AddMilage
             // 

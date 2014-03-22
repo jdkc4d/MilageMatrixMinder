@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Milage_Matrix_Minder
 {
@@ -32,6 +33,18 @@ namespace Milage_Matrix_Minder
             ReadWriteCSV myCSV = new ReadWriteCSV();
             String JSON = myCSV.ToJSON(ofd_MilageMatrix.FileName);
             MessageBox.Show(JSON);
+            //Save the matrix to a JSON file
+            try
+            {
+                String CurrentDirectory = Directory.GetCurrentDirectory();
+                StreamWriter NewFile = new StreamWriter(CurrentDirectory + "\\MilageMatrix.json");
+                NewFile.Write(JSON);
+                NewFile.Flush();
+            }
+            catch (UnauthorizedAccessException yikes)
+            {
+                MessageBox.Show("You have insufficient rights to save documents here.", "Unauthorized Access");
+            }
         }
 
         private void frm_main_Load(object sender, EventArgs e)
@@ -41,6 +54,11 @@ namespace Milage_Matrix_Minder
             //Update Progress bar accordingly.
 
 
+        }
+
+        private void btn_ExportCSV_Click(object sender, EventArgs e)
+        {
+            //Build a file, to export the current report to a CSV
         }
     }
 }
