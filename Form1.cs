@@ -31,14 +31,14 @@ namespace Milage_Matrix_Minder
         {
             //Process the CSV and turn into JSON
             ReadWriteCSV myCSV = new ReadWriteCSV();
-            String JSON = myCSV.ToJSON(ofd_MilageMatrix.FileName);
-            MessageBox.Show(JSON);
+            this.MilageMatrix = myCSV.ToJSON(ofd_MilageMatrix.FileName);
+            //MessageBox.Show(MilageMatrix);
             //Save the matrix to a JSON file
             try
             {
                 String CurrentDirectory = Directory.GetCurrentDirectory();
                 StreamWriter NewFile = new StreamWriter(CurrentDirectory + "\\MilageMatrix.json");
-                NewFile.Write(JSON);
+                NewFile.Write(this.MilageMatrix);
                 NewFile.Flush();
             }
             catch (UnauthorizedAccessException yikes)
@@ -49,9 +49,21 @@ namespace Milage_Matrix_Minder
 
         private void frm_main_Load(object sender, EventArgs e)
         {
-            //Check to see if there is a MilageMatrix file in the running directory, look for JSON, not csv
             //Check to see if there is an existing Milage Report in the running directory
             //Update Progress bar accordingly.
+
+            if(File.Exists(Directory.GetCurrentDirectory() + "\\MilageMatrix.json"))
+            {
+                tb_MilageMatrix.Text = "Matrix Loaded";
+                tb_MilageMatrix.Enabled = false;
+
+                //Enable the append features
+                dtp_AddMilage.Enabled = true;
+                cb_StartLocation.Enabled = true;
+                cb_EndLocation.Enabled = true;
+                btn_AppendMilageReport.Enabled = true;
+            }
+
 
 
         }
