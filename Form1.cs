@@ -86,6 +86,8 @@ namespace Milage_Matrix_Minder
                 cb_EndLocation.Enabled = true;
                 btn_AppendMilageReport.Enabled = true;
 
+                //Use the serialize/deserialize to created a collection of Offices
+
                 return true;
             }
             else return false;
@@ -103,7 +105,11 @@ namespace Milage_Matrix_Minder
             cb_EndLocation.Items.Add("End Location");
             cb_EndLocation.SelectedItem = "End Location";
 
-            //using the json, get the locations
+            //Step through the Branches Collection and Populate the Drop downs.
+            foreach (Office Branch in Branches)
+            {
+
+            }
         }
     }
 }

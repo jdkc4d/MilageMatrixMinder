@@ -1,4 +1,6 @@
-﻿namespace Milage_Matrix_Minder
+﻿using System.Collections.ObjectModel;
+
+namespace Milage_Matrix_Minder
 {
     partial class frm_main
     {
@@ -193,6 +195,9 @@
         //These variables are for the Matrix and Report, so the form has them all the time while running.
         private string MilageMatrix;
         private string MilageReport;
+
+        //This is a Collection of Office Objects
+        private Collection<Office> Branches;
     }
 }
 
