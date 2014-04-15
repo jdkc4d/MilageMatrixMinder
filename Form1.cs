@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Runtime.Serialization.Json;
 
 namespace Milage_Matrix_Minder
 {
@@ -101,6 +102,8 @@ namespace Milage_Matrix_Minder
             cb_StartLocation.SelectedItem = "Start Location";
             cb_EndLocation.Items.Add("End Location");
             cb_EndLocation.SelectedItem = "End Location";
+
+            //using the json, get the locations
         }
     }
 }
