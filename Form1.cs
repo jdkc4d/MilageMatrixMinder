@@ -40,11 +40,17 @@ namespace Milage_Matrix_Minder
                 StreamWriter NewFile = new StreamWriter(CurrentDirectory + "\\MilageMatrix.json");
                 NewFile.Write(this.MilageMatrix);
                 NewFile.Flush();
+
+                //I need a method to verify the file was created before continuing...
             }
             catch (UnauthorizedAccessException yikes)
             {
                 MessageBox.Show("You have insufficient rights to save documents here.", "Unauthorized Access");
             }
+
+            //We now have the json file Matrix. Next step is to utilize the json and populate the location drop downs
+            cb_StartLocation.Items.Add("Start Location");
+            cb_EndLocation.Items.Add("End Location");
         }
 
         private void frm_main_Load(object sender, EventArgs e)
@@ -62,15 +68,18 @@ namespace Milage_Matrix_Minder
                 cb_StartLocation.Enabled = true;
                 cb_EndLocation.Enabled = true;
                 btn_AppendMilageReport.Enabled = true;
+
+                //Trigger an event to begin the population of the Start and End location drop downs
             }
-
-
-
         }
 
         private void btn_ExportCSV_Click(object sender, EventArgs e)
         {
             //Build a file, to export the current report to a CSV
+        }
+        private void MatrixJSON_Loaded(object sender, EventArgs e)
+        {
+
         }
     }
 }
